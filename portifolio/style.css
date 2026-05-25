@@ -1,6 +1,6 @@
-@import "assets/css/home.css";
-@import "assets/css/responsive.css";
-@import "assets/css/utils.css";
+@import "/portifolio/assets/css/home.css";
+@import "/portifolio/assets/css/responsive.css";
+@import "/portifolio/assets/css/utils.css";
 
 * {
     margin: 0;
