@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UO - Ultima Online Build Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar-left" id="sidebarLeft">
+            <div class="sidebar-header">
+                <h2>
+                    <span class="icon-decor">◆</span>Habilidades<span class="icon-decor">◆</span>
+                </h2>
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar habilidade..." autocomplete="off">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+            <div class="skills-list" id="skillsList"></div>
+        </aside>
+
+        <main class="main-content" id="mainContent">
+            <div class="main-header">
+                <h1>Build Planner</h1>
+                <p class="subtitle">Arraste as habilidades para os encaixes abaixo</p>
+            </div>
+            <div class="slots-grid" id="slotsGrid"></div>
+            <button class="add-slot-btn" id="addSlotBtn" title="Adicionar novo encaixe">
+                <span class="plus-icon">+</span> Novo Encaixe
+            </button>
+            <div class="total-gauge-container" id="totalGauge">
+                <div class="gauge-ring">
+                    <svg viewBox="0 0 52 52">
+                        <circle class="ring-bg" cx="26" cy="26" r="22"/>
+                        <circle class="ring-fill" id="ringFill" cx="26" cy="26" r="22"
+                        stroke-dasharray="138.23" stroke-dashoffset="0"/>
+                    </svg>
+                    <div class="gauge-center" id="gaugePercent">0%</div>
+                </div>
+                <div class="total-info">
+                    <span class="total-label">Total de Pontos</span>
+                    <span class="total-numbers">
+                        <span class="used" id="totalUsed">0</span><span class="sep">/</span><span class="cap" id="totalCapDisplay">700</span>
+                    </span>
+                </div>
+                <span class="slots-count" id="slotsCount">0 habilidades</span>
+            </div>
+        </main>
+
+        <aside class="sidebar-right" id="sidebarRight">
+            <h3>⚙ Configuração</h3>
+            <div class="config-section">
+                <h4>📋 Caps de Skills</h4>
+                <div class="config-row">
+                    <span class="config-label">Cap Infinito</span>
+                    <input type="checkbox" class="config-checkbox" id="infiniteCapCheckbox">
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Cap Global</span>
+                    <input type="number" class="config-input" id="globalCapInput" value="700" min="10" max="5000" step="10">
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Cap por Skill</span>
+                    <input type="number" class="config-input" id="perSkillCapInput" value="100" min="10" max="500" step="5">
+                </div>
+            </div>
+            <div class="config-section">
+                <h4>🛡 Status (STR/DEX/INT)</h4>
+                <div class="stat-row">
+                    <span class="stat-label-mini">STR</span>
+                    <input type="number" class="config-input small" id="strInput" value="100" min="0" max="200" step="5">
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label-mini">DEX</span>
+                    <input type="number" class="config-input small" id="dexInput" value="100" min="0" max="200" step="5">
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label-mini">INT</span>
+                    <input type="number" class="config-input small" id="intInput" value="25" min="0" max="200" step="5">
+                </div>
+                <div class="stat-total-row" id="statTotalRow">
+                    <span>Total Status</span>
+                    <span class="stat-total-val" id="statTotalVal">225</span> / <span id="statCapDisplay">225</span>
+                </div>
+            </div>
+            <div class="config-section">
+                <h4>🎯 Cap de Status</h4>
+                <div class="config-row">
+                    <span class="config-label">Status Cap</span>
+                    <input type="number" class="config-input" id="statusCapInput" value="225" min="10" max="500" step="5">
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Cap Individual</span>
+                    <input type="number" class="config-input" id="individualStatCapInput" value="125" min="10" max="200" step="5">
+                </div>
+            </div>
+            <button class="export-btn" id="exportBtn" title="Exportar build como PDF">
+                <span class="btn-icon">📜</span> Exportar PDF
+            </button>
+            <button class="reset-btn" id="resetBtn">⟳ Limpar Build</button>
+        </aside>
+    </div>
+
+    <div class="drag-ghost" id="dragGhost"></div>
+    <div class="toast" id="toast"></div>
+    <div id="printTemplate" style="display:none;"></div>
+<script src="/js/script.js"></script>   
+</body>
+</html>
