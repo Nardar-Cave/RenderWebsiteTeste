@@ -13,32 +13,35 @@
     <link rel="stylesheet" href="/central/css/estilos.css">
     <link rek="stylesheet" href="/central/css/estilos-navbar.css">
 
+    <style>
+        /* Ajuste para não conflitar com o header antigo */
+        .app-container {
+            padding-top: 70px; /* espaço para a navbar fixa */
+        }
+    </style>
 </head>
 
 <body>
-
-    <header>
-
-        <nav>
-
-            <div class="menu-desktop">
-
+    <!-- NOVA NAVBAR -->
+    <nav>
+        <div class="navbar">
+            <a href="/index.html" class="logo">Celestial Codex</a>
+            
+            <div class="nav-links">
                 <a href="/portifolio/index.html">Curriculum</a>
-
-                <a href="/UO/index.html">UO Builder</a>
-
+                <a href="/UO/index.html" class="active">UO Builder</a>
                 <a href="#">TO-DO List</a>
-
-                <a href="#">Check-In Diario</a>
-
+                <a href="#">Check-In</a>
             </div>
-
-        <div class="menu-mobile">
-
-            Menu (Clique para expandir em um cenário real)
-
+            
+            <div class="mobile-menu">
+                <!-- Menu mobile aqui se quiser expandir com JS -->
+                <a href="/portifolio/index.html">Curriculum</a>
+                <a href="/UO/index.html">UO Builder</a>
+                <a href="#">TO-DO List</a>
+            </div>
         </div>
-        </nav>
+    </nav>
 
     </header>
 
