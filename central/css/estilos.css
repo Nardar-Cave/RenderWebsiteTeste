@@ -1,142 +1,149 @@
-/* Estilo para o corpo da página */
-
-body {
-
-    font-family: Arial, sans-serif;
-
-    background-color: #f4f4f4;
-
-    color: #333;
-
-    margin: 0; padding: 20px;
-
+/* Reset básico e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilo para o cabeçalho */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
 
+/* Cabeçalho e Navbar */
 header {
-
     background-color: #333;
-
     color: white;
-
-    padding: 15px 0;
-
-    text-align: center;
-
 }
 
 .menu-desktop {
     position: sticky;
-    top: 0; /* Cola no topo quando o scroll atinge 0px do elemento */
-    z-index: 900;
-    text-align: center;
-    
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-around;
     background-color: #333;
-    padding: 10px;
-
+    padding: 15px 0;
     transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.menu-desktop:hover {
-
-    border:#007bff
 }
 
 .menu-desktop a {
     color: white;
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
-.menu-mobile {
-    display: none; /* Escondido por padrão */
-}
-   
 
-/* Estilo para o título principal */
+.menu-desktop a:hover {
+    color: #007bff;
+}
+
+.menu-mobile {
+    display: none;
+    background-color: #555;
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+/* View Transitions (baseado no vídeo) */
+@view-transition {
+    navigation: auto;
+}
+
+:root {
+    view-transition-name: page-content; /* Nome para isolar o conteúdo principal */
+}
+
+/* Animação de slide (como no tutorial) */
+@keyframes slide-out {
+    to {
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(root) {
+    animation-name: slide-in;
+}
+
+/* Estilos de conteúdo */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 h1 {
-
     color: #007bff;
-
     font-size: 2.5em;
-
     margin-bottom: 20px;
-
 }
 
-/* Estilo para parágrafos */
+h2, h3 {
+    margin: 20px 0 10px;
+}
 
 p {
-
-    line-height: 1.6;
-
     text-align: justify;
-
+    margin-bottom: 15px;
 }
 
-/* Estilo para o botão */
-
 button {
-
     background-color: #28a745;
-
     color: white;
-
-    padding: 10px 20px;
-
+    padding: 12px 24px;
     border: none;
-
     border-radius: 5px;
-
     cursor: pointer;
-
     font-size: 1.1em;
-
     transition: background-color 0.3s ease;
-
-    /* Efeito de transição ao passar o mouse */
-
 }
 
 button:hover {
-
     background-color: #218838;
-
 }
 
-/* Estilo para o rodapé */
-
+/* Rodapé */
 footer {
-
     text-align: center;
-
-    margin-top: 40px;
-
-    padding: 10px;
-
+    padding: 20px;
     background-color: #eee;
-
-    font-size: 0.9em;
-
     color: #666;
-
+    margin-top: 50px;
 }
 
-
-/* Quando a tela for menor que 768px (mobile), escondemos o menu desktop e mostramos o mobile */
+/* Responsivo */
 @media screen and (max-width: 768px) {
     .menu-desktop {
         display: none;
     }
     .menu-mobile {
         display: block;
-        background-color: #555;
-        padding: 10px;
-        text-align: center;
-        color: white;
     }
-} 
+    
+    main {
+        padding: 20px 15px;
+    }
+}
