@@ -8,8 +8,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;@400;@500;@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/central/css/estilos-navbar.css">
+    <style>
+        /* Ajuste para não conflitar com o header antigo */
+        .app-container {
+            padding-top: 70px; /* espaço para a navbar fixa */
+        }
+    </style>
 </head>
+
 <body>
+    <!-- NOVA NAVBAR -->
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo">Celestial Codex</a>
+            
+            <div class="nav-links">
+                <a href="/portifolio/index.html">Portfólio</a>
+                <a href="#" class="active">UO Builder</a>
+                <a href="/TODO/index.html">TO-DO List</a>
+                <a href="/checkin/index.html">Check-In</a>
+            </div>
+            
+            <div class="mobile-menu">
+                <!-- Menu mobile aqui se quiser expandir com JS -->
+                <a href="/portifolio/index.html">Portfólio</a>
+                <a href="#">UO Builder</a>
+                <a href="/TODO/index.html">TO-DO List</a>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="h-name">
